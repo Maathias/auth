@@ -85,12 +85,11 @@ function displayUser({ uname, socials, logedin }) {
 		logedin
 	).toLocaleString()
 
-	document.querySelector(
-		'.user .socials .platform[data-social=facebook]'
-	).textContent = decodeURI(socials.facebook ?? '')
-	document.querySelector(
-		'.user .socials .platform[data-social=discord]'
-	).textContent = decodeURI(socials.discord ?? '')
+	for (let platform in socials) {
+		document.querySelector(
+			`.user .socials .platform[data-social=${platform}]`
+		).textContent = decodeURI(socials[platform] ?? '')
+	}
 }
 
 function logout() {
@@ -130,7 +129,16 @@ function promptLogin(platform) {
 		let popup = window.open(
 			target,
 			`login with platform`,
-			`scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=${width},height=${height}`
+			[
+				'scrollbars=no',
+				'resizable=no',
+				'status=no',
+				'location=no',
+				'toolbar=no',
+				'menubar=no',
+				`width=${width}`,
+				`height=${height}`,
+			].join(',')
 		)
 
 		// periodically check if the login is complete

@@ -1,0 +1,35 @@
+{
+	"name": "auth",
+	"version": "0.1.0",
+	"description": "Cross subdomain authentication server",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"dev": "NODE_ENV=development nodemon index",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/Maathias/auth.git"
+	},
+	"author": "Mateusz Pstrucha",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Maathias/auth/issues"
+	},
+	"homepage": "https://github.com/Maathias/auth#readme",
+	"dependencies": {
+		"bcrypt": "^5.0.1",
+		"body-parser": "^1.19.0",
+		"cookie-parser": "^1.4.6",
+		"cors": "^2.8.5",
+		"dotenv": "^10.0.0",
+		"ejs": "^3.1.6",
+		"express": "^4.17.1",
+		"got": "^12.0.0",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^6.1.3",
+		"pino": "^7.6.2",
+		"uuid": "^8.3.2"
+	}
+}

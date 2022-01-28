@@ -1,0 +1,21 @@
+.wrapper {
+	display: flex;
+	justify-content: center;
+}
+
+.content {
+	position: relative;
+	height: 100vh;
+	width: 25rem;
+	overflow: hidden auto;
+
+	background-color: hsl(221deg 24% 18% / 27%);
+	backdrop-filter: blur(3px);
+	box-shadow: 0 0 20px 4px #0000008c;
+	color: #fefefe;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}

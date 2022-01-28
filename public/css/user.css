@@ -1,0 +1,44 @@
+.user {
+	width: 100%;
+	padding: 0.2em 1em;
+	margin-bottom: 1em;
+	display: none;
+}
+
+.user[data-logedin='true'] {
+	display: initial;
+}
+
+.user .uname {
+	font-size: 1.5em;
+	display: inline-block;
+	font-family: 'Roboto Mono';
+}
+
+.user .logedin {
+	display: inline-block;
+	font-size: 0.7em;
+	color: #dddd;
+}
+
+.user .socials {
+	display: flex;
+	padding: 0.5em 0;
+	font-size: 0.8em;
+}
+
+.user .socials > .platform {
+	padding: 0.1em 0.5em;
+	background: #fff;
+	border-radius: 3px;
+	color: var(--color-primary);
+	text-shadow: 0 0 1px #00000038;
+}
+
+.platform:not(:empty) {
+	margin-right: 1em;
+}
+
+.platform:empty {
+	display: none;
+}

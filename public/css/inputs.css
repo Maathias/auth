@@ -1,0 +1,134 @@
+.fields.social-only > .input.text input {
+	border-bottom: 3px solid var(--color-secondary);
+}
+
+.fields.logedin > .input:not(.button) {
+	display: none;
+}
+
+.input {
+	width: 100%;
+	margin-bottom: 2em;
+	position: relative;
+}
+
+.input:last-child {
+	margin-bottom: unset;
+}
+
+.input label {
+	font-size: 75%;
+	text-transform: uppercase;
+}
+
+.input input {
+	appearance: none;
+	-webkit-appearance: none;
+	border: none;
+	background: unset;
+	border-bottom: 1px solid white;
+	color: inherit;
+	border-radius: unset;
+}
+
+.input.checkbox {
+	display: flex;
+	align-items: center;
+	justify-content: right;
+	flex-direction: row;
+}
+
+.input.checkbox input {
+	width: 18px;
+	height: 18px;
+	border: 2px solid white;
+	margin: 0 0.5em;
+	border-radius: 3px;
+	cursor: pointer;
+	box-shadow: 0 0 4px #0005 inset;
+	transition: box-shadow 0.3s ease-in-out;
+}
+
+.input.checkbox input:checked {
+	box-shadow: 0 0 2px 7px var(--color-primary) inset;
+}
+
+.input.checkbox input::after {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	/* border: 2px solid red; */
+	box-sizing: border-box;
+	background-color: white;
+	border-radius: 3px;
+	/* position: relative; */
+	left: 0;
+	top: 0;
+	/* margin: 0; */
+	/* top: calc(50% - 2px); */
+	transform: scale(0);
+	transition: transform 0.2s;
+}
+
+.input.checkbox input:checked::after {
+	transform: scale(0.6);
+}
+
+.input.text input,
+.input.button input {
+	padding: 0.8em 0.2em;
+	width: 100%;
+	appearance: none;
+	-webkit-appearance: none;
+	border: none;
+	background: unset;
+	border-bottom: 1px solid white;
+	color: inherit;
+	border-radius: unset;
+}
+
+.input.text input:focus {
+	outline: unset;
+	border-bottom-color: var(--color-primary);
+}
+
+.input input::placeholder {
+	color: #ccc;
+}
+
+.input.text:focus-within:before {
+	content: '';
+	width: 0.5em;
+	height: 0.5em;
+	/* background-color: red; */
+	position: absolute;
+	left: -2em;
+	bottom: 0.85em;
+	border-width: 2px;
+	border-style: solid solid none none;
+	transform: rotate(45deg);
+}
+
+.input.button input {
+	border: 1px solid white;
+	text-transform: uppercase;
+	transition-duration: 0.2s;
+	transition-property: background-color, box-shadow;
+	user-select: none;
+}
+
+.input.button input:disabled {
+	color: #ccc;
+	box-shadow: 0 0 10px 0px #00000033 inset;
+}
+
+.input.button input:not(:disabled) {
+	background-color: var(--color-primary);
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.input.button input:not(:disabled):hover {
+	box-shadow: 0 5px 6px -2px #ffffff6e;
+}

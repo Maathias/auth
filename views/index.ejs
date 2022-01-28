@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<% const { top, domain, customs: {colors: {primary, secondary}} }=meta %>
+
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<%- `
+		<script>
+			window.meta=${JSON.stringify(meta)}
+		</script>
+		` %>
+
+		<title>Login |</title>
+		<link
+			rel="shortcut icon"
+			href="/img/domains/<%= top %>.png"
+			type="image/x-icon"
+		/>
+
+		<script src="/main.js"></script>
+		<link rel="stylesheet" href="/style.css" />
+
+		<style>
+			body {
+				--color-primary: <%= primary %>;
+				--color-secondary: <%= secondary %>;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="content">
+				<div class="return">close</div>
+				<img class="logo" src="/img/domains/<%= top %>.png" alt="" srcset="" />
+
+				<h2 class="badge"><%= top %></h2>
+
+				<div class="badge user" data-logedin="false">
+					<div class="uname"></div>
+					<div class="logedin"></div>
+					<div class="socials">
+						<div class="platform" data-social="facebook"></div>
+						<div class="platform" data-social="discord"></div>
+					</div>
+					<div class="input button">
+						<input type="submit" id="logout" value="log out" />
+					</div>
+				</div>
+
+				<div class="separator">log in</div>
+
+				<div class="fields badge">
+					<div class="input text" data-for="username">
+						<label for="username" class="name">Username</label>
+						<input type="text" placeholder="Your Username" id="username" />
+					</div>
+
+					<div class="input text" data-for="password">
+						<label for="password" class="name">Password</label>
+						<input type="password" placeholder="Your Password" id="password" />
+					</div>
+
+					<div class="input checkbox" data-for="rememberme">
+						<label for="rememberme">Remember me</label>
+						<input type="checkbox" id="rememberme" checked />
+					</div>
+
+					<div class="input button" data-for="send">
+						<input type="submit" id="submit" value="log in" disabled />
+					</div>
+				</div>
+
+				<div class="status" data-content=""></div>
+
+				<div class="separator">
+					<div class="biswitch">
+						<div class="a">log in</div>
+						<div class="b">sign up</div>
+					</div>
+				</div>
+
+				<div class="socials badge">
+					<div class="external" data-social="google" disabled>Google</div>
+					<div class="external" data-social="facebook" disabled>Facebook</div>
+					<div class="external" data-social="discord" disabled>Discord</div>
+				</div>
+
+				<div class="copy"><%= top %> © 2020</div>
+			</div>
+		</div>
+	</body>
+</html>

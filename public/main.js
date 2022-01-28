@@ -27,12 +27,15 @@ var inputs = {
 	socials: {},
 }
 
+// display pending actions
 function info(content, pending = true) {
 	const el = document.querySelector('.status')
+
 	el.setAttribute('data-content', content)
 	pending ? el.classList.add('pending') : el.classList.remove('pending')
 }
 
+// send form
 function send() {
 	info('Preparing')
 
@@ -78,6 +81,7 @@ function send() {
 	info('Sending')
 }
 
+// display loged in account info
 function displayUser({ uname, socials, logedin }) {
 	document.querySelector('.user').setAttribute('data-logedin', true)
 	document.querySelector('.user .uname').textContent = uname
@@ -92,6 +96,7 @@ function displayUser({ uname, socials, logedin }) {
 	}
 }
 
+// remove jwt
 function logout() {
 	document.querySelector('.user').setAttribute('data-logedin', false)
 
@@ -108,6 +113,7 @@ function logout() {
 	fieldChange()
 }
 
+// display external login form
 function promptLogin(platform) {
 	return new Promise((resolve, reject) => {
 		// target oauth uri, with window sizes
@@ -158,6 +164,7 @@ function promptLogin(platform) {
 				if (code.state != platform) reject('Invalid state')
 				// somehow there's no code
 				else if (typeof code.code != 'string') reject('Log in denied')
+				// success
 				else resolve(code)
 
 				// cleanup the timer and popup window
@@ -168,6 +175,7 @@ function promptLogin(platform) {
 	})
 }
 
+// switch register/login
 function doRegister(on) {
 	inputs.register = on ?? !inputs.register
 
@@ -183,6 +191,7 @@ function doRegister(on) {
 	fieldChange()
 }
 
+// change submit button label
 function submitButton(
 	display = inputs.ready,
 	label = inputs.register ? 'sign up' : 'log in'
@@ -196,6 +205,7 @@ function submitButton(
 	else submit.setAttribute('disabled', true)
 }
 
+// update form metadata
 function fieldChange() {
 	inputs.uname = document.querySelector('input[id=username]').value
 	inputs.pass = document.querySelector('input[id=password]').value
@@ -252,7 +262,7 @@ window.addEventListener('load', (e) => {
 	// login/register switch
 	document.querySelector('.biswitch').onclick = () => doRegister()
 
-	// enable external login
+	// enable external login buttons
 	for (let platform in window.meta.socials) {
 		let label = platform.split('_')[0].toLowerCase()
 		document
@@ -260,7 +270,7 @@ window.addEventListener('load', (e) => {
 			.removeAttribute('disabled')
 	}
 
-	// external login buttons
+	// external login buttons events
 	document
 		.querySelector('.content > .socials')
 		.addEventListener('click', function (e) {
